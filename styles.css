@@ -325,6 +325,43 @@ body.faded #landing {
     white-space: nowrap;
 }
 
+.projects-note {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: rgba(31, 31, 31, 0.7);
+}
+
+.projects-note a {
+    color: #1a3556;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(26, 53, 86, 0.35);
+}
+
+.projects-note a:hover {
+    color: #b48a4a;
+    border-bottom-color: rgba(180, 138, 74, 0.6);
+}
+
+.project-subtext {
+    font-size: 0.9rem;
+    color: rgba(31, 31, 31, 0.55);
+    margin-top: 6px;
+}
+
+.edu-subtext {
+    font-size: 0.9rem;
+    color: rgba(31, 31, 31, 0.6);
+    margin-top: 4px;
+    font-weight: 600;
+}
+
+.edu-coursework {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: rgba(31, 31, 31, 0.6);
+    line-height: 1.6;
+}
+
 .contact-section {
     padding: 80px 0 60px;
     display: flex;
