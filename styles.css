@@ -634,8 +634,8 @@ body.faded .chat-widget {
     position: absolute;
     right: 0;
     bottom: 54px;
-    width: min(360px, 88vw);
-    max-height: 520px;
+    width: min(380px, 90vw);
+    max-height: 640px;
     background: #fefcf8;
     color: #1f1f1f;
     border-radius: 18px;
@@ -682,7 +682,7 @@ body.faded .chat-widget {
     flex-direction: column;
     gap: 10px;
     overflow-y: auto;
-    max-height: 320px;
+    max-height: 430px;
 }
 
 .chat-bubble {
