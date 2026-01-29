@@ -325,6 +325,74 @@ body.faded #landing {
     white-space: nowrap;
 }
 
+.contact-section {
+    padding: 80px 0 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    border-top: 1px solid rgba(31, 31, 31, 0.12);
+}
+
+.contact-kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.85rem;
+    color: rgba(31, 31, 31, 0.6);
+}
+
+.contact-section h2 {
+    font-family: 'Newsreader', serif;
+    font-size: clamp(2.6rem, 4vw, 3.6rem);
+    color: #1f1f1f;
+    margin-bottom: 10px;
+}
+
+.contact-pill {
+    display: flex;
+    gap: 24px;
+    padding: 18px 28px;
+    border-radius: 999px;
+    border: 1px solid rgba(31, 31, 31, 0.25);
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+}
+
+.contact-pill a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #1f1f1f;
+    text-decoration: none;
+}
+
+.contact-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(31, 31, 31, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: #1f1f1f;
+}
+
+.contact-pill a:hover {
+    color: #1a3556;
+}
+
+.contact-pill a:hover .contact-icon {
+    border-color: rgba(26, 53, 86, 0.4);
+}
+
 .site-footer {
     margin-top: 40px;
     padding: 28px 0 10px;
@@ -688,6 +756,12 @@ body.faded .chat-widget {
     .detail-item {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .contact-pill {
+        flex-direction: column;
+        border-radius: 24px;
+        gap: 14px;
     }
 
     .chat-widget {

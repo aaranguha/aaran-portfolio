@@ -55,6 +55,11 @@ window.addEventListener('load', () => {
                 typeText(secondText, () => {
                     setTimeout(() => {
                         document.body.classList.add('faded');
+                        const profileInner = document.querySelector('.profile-inner');
+                        const siteHeader = document.querySelector('.site-header');
+                        if (profileInner && siteHeader) {
+                            profileInner.scrollTop = siteHeader.offsetHeight + 12;
+                        }
                     }, 1000);
                 });
             });
