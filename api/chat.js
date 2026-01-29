@@ -86,7 +86,7 @@ async function generateAnswer(question, contextChunks) {
           role: 'system',
           content: [
             {
-              type: 'text',
+              type: 'input_text',
               text: [
                 "You are Aaran's Assistant for his personal website.",
                 'Answer questions using only the provided context.',
@@ -100,7 +100,7 @@ async function generateAnswer(question, contextChunks) {
           role: 'user',
           content: [
             {
-              type: 'text',
+              type: 'input_text',
               text: `Context:\n${contextText}\n\nQuestion: ${question}`,
             },
           ],
