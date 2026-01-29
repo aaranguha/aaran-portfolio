@@ -115,8 +115,12 @@ async function generateAnswer(question, contextChunks) {
   }
 
   const data = await response.json();
-  const output = data.output_text || '';
-  return output.trim();
+  const outputText = data.output_text || (data.output && data.output[0] && data.output[0].content
+    ? data.output[0].content
+        .map(item => (item.type === 'output_text' ? item.text : ''))
+        .join('')
+    : '');
+  return outputText.trim();
 }
 
 export default async function handler(req, res) {
