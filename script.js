@@ -229,6 +229,45 @@ function addMessage(text, role) {
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
+function addImageMessage(src, altText) {
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble assistant image';
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = altText;
+    bubble.appendChild(img);
+    chatMessages.appendChild(bubble);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function shouldShowStephPhoto(question) {
+    const text = question.toLowerCase();
+    const hasSteph = text.includes('steph') || text.includes('curry');
+    const hasPhoto = text.includes('photo') || text.includes('picture') || text.includes('pic') || text.includes('image');
+    const hasTogether = text.includes('me and') || text.includes('with') || text.includes('together');
+    return hasSteph && (hasPhoto || hasTogether);
+}
+
+function shouldShowLeoPhoto(question) {
+    const text = question.toLowerCase();
+    const hasLeo = text.includes('leo') || text.includes('maltipoo') || text.includes('dog');
+    const hasPhoto = text.includes('photo') || text.includes('picture') || text.includes('pic') || text.includes('image') || text.includes('see');
+    return hasLeo && hasPhoto;
+}
+
+function shouldShowHaircutLink(question) {
+    const text = question.toLowerCase();
+    return text.includes('haircut') || text.includes('haircuts') || text.includes('barber') || text.includes('fade');
+}
+
+function shouldShow49ersPhoto(question) {
+    const text = question.toLowerCase();
+    const has49ers = text.includes('49ers') || text.includes('niners') || text.includes('nfc');
+    const sportsKeywords = text.includes('sports') || text.includes('hobby') || text.includes('football') || text.includes('fan');
+    const hasPhoto = text.includes('photo') || text.includes('picture') || text.includes('pic') || text.includes('see');
+    return has49ers || (sportsKeywords && hasPhoto) || (sportsKeywords && has49ers) || (sportsKeywords && text.includes('game'));
+}
+
 function addTypingIndicator() {
     const bubble = document.createElement('div');
     bubble.className = 'chat-bubble assistant';
@@ -252,6 +291,33 @@ async function handleChatSubmit(event) {
     addTypingIndicator();
 
     try {
+        if (shouldShowStephPhoto(question)) {
+            removeTypingIndicator();
+            addMessage('Here you go!', 'assistant');
+            addImageMessage('steph.jpg', 'Aaran with Steph');
+            return;
+        }
+        if (shouldShowLeoPhoto(question)) {
+            const leoPhotos = ['Leo_1.jpg', 'Leo_2.jpg', 'Leo_3.jpg'];
+            const chosen = leoPhotos[Math.floor(Math.random() * leoPhotos.length)];
+            removeTypingIndicator();
+            addMessage('Here’s Leo 🐾', 'assistant');
+            addImageMessage(chosen, 'Leo the maltipoo');
+            return;
+        }
+        if (shouldShowHaircutLink(question)) {
+            removeTypingIndicator();
+            addMessage('Here’s my haircut page:', 'assistant');
+            addMessage('https://www.instagram.com/agcutz03/', 'assistant');
+            return;
+        }
+        if (shouldShow49ersPhoto(question)) {
+            removeTypingIndicator();
+            addMessage('My biggest wish is to see the 49ers win a championship in my lifetime.', 'assistant');
+            addMessage('I was lucky enough to go to the NFC Championship game in 2023 — here’s a pic:', 'assistant');
+            addImageMessage('49ers.jpg', 'Aaran at the 49ers NFC Championship game');
+            return;
+        }
         const answer = await fetchAiAnswer(question);
         removeTypingIndicator();
         addMessage(answer, 'assistant');
