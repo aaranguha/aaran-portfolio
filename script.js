@@ -205,6 +205,22 @@ function getBestAnswer(question) {
     return fallbackResponses[randomIndex];
 }
 
+async function fetchAiAnswer(question) {
+    const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question }),
+    });
+
+    if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || 'AI request failed.');
+    }
+
+    const data = await response.json();
+    return data.answer;
+}
+
 function addMessage(text, role) {
     const bubble = document.createElement('div');
     bubble.className = `chat-bubble ${role}`;
@@ -227,7 +243,7 @@ function removeTypingIndicator() {
     if (bubble) bubble.remove();
 }
 
-function handleChatSubmit(event) {
+async function handleChatSubmit(event) {
     event.preventDefault();
     const question = chatInput.value.trim();
     if (!question) return;
@@ -235,11 +251,15 @@ function handleChatSubmit(event) {
     chatInput.value = '';
     addTypingIndicator();
 
-    setTimeout(() => {
+    try {
+        const answer = await fetchAiAnswer(question);
         removeTypingIndicator();
-        const answer = getBestAnswer(question);
         addMessage(answer, 'assistant');
-    }, 450);
+    } catch (error) {
+        removeTypingIndicator();
+        const fallback = getBestAnswer(question);
+        addMessage(fallback, 'assistant');
+    }
 }
 
 chatToggle.addEventListener('click', () => {

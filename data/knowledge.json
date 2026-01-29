@@ -1,0 +1,72 @@
+{
+  "chunks": [
+    {
+      "source": "About",
+      "text": "Aaran Guha is a data scientist focused on building machine learning systems that translate real-world data into clear decisions."
+    },
+    {
+      "source": "About",
+      "text": "He is currently at N2IA Technologies building forecasting and automation tools for large-scale operations."
+    },
+    {
+      "source": "About",
+      "text": "He cares about ML in production, building AI agents that automate real workflows, and turning complex data into decisions teams can act on with confidence."
+    },
+    {
+      "source": "About",
+      "text": "Aaran is completing his M.S. in CS at Georgia Tech (AI Specialization) after finishing his B.S. at UCSC."
+    },
+    {
+      "source": "Experience",
+      "text": "Data Scientist at N2IA Technologies (Oct 2024 – Present): Built ML forecasting models for U.S. Army service requirements, designed ETL pipelines, and deployed MLOps workflows in the Palantir Vantage environment."
+    },
+    {
+      "source": "Experience",
+      "text": "Machine Learning Intern at UXly (Jan 2024 – Jun 2024): Developed a bot detection model for blockchain transactions and integrated it into a TypeScript backend for real-time security."
+    },
+    {
+      "source": "Experience",
+      "text": "Data Engineering Intern at Sephora (Jun 2023 – Aug 2023): Created generative AI pipelines and custom Stable Diffusion workflows for brand visuals."
+    },
+    {
+      "source": "Education",
+      "text": "Georgia Institute of Technology: M.S. Computer Science, GPA 4.00 (Aug 2024 – Jul 2026). Artificial Intelligence Specialization."
+    },
+    {
+      "source": "Education",
+      "text": "Georgia Tech coursework: Machine Learning, Intro to Analytical Modeling, ML for Trading, Data Analytics & Security, Natural Language Processing, Software Development Processes, Ethics of Data & AI Systems."
+    },
+    {
+      "source": "Education",
+      "text": "University of California, Santa Cruz: B.S. Computer Science, GPA 3.67 (Sep 2021 – Jun 2024)."
+    },
+    {
+      "source": "Education",
+      "text": "UCSC coursework: Data Structures & Algorithms, Analysis of Algorithms, Applied Deep Learning, Operating Systems, Database Systems (SQL), Java, Python, Computer Architecture, Computer Security."
+    },
+    {
+      "source": "Projects",
+      "text": "Touchdown.Life: Wordle-like NFL roster game. Share your results and test your football knowledge. Play at https://touchdown.life/."
+    },
+    {
+      "source": "Projects",
+      "text": "PDFPal: RAG-powered personalized chatbots for querying dense PDF documents using LangChain and Transformers. Demo video at https://www.youtube.com/watch?v=GrI-17GLu7Q."
+    },
+    {
+      "source": "Projects",
+      "text": "Apple Music → Spotify Converter: Tool to help people migrate playlists. Demo video at https://www.youtube.com/watch?v=HyMttDcVTHA."
+    },
+    {
+      "source": "Projects",
+      "text": "NBA_Chipotle_Getter_6000: Automation tool that monitored TweetDeck for Chipotle promo codes during the NBA Finals and sent them via SMS. Repo: https://github.com/aaranguha/Chipotle_Getter_6000."
+    },
+    {
+      "source": "Contact",
+      "text": "Contact Aaran via email at aaranguhaca@gmail.com or through LinkedIn: https://www.linkedin.com/in/aaran-guha/."
+    },
+    {
+      "source": "Contact",
+      "text": "GitHub: https://github.com/aaranguha."
+    }
+  ]
+}
