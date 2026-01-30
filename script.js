@@ -377,6 +377,66 @@ document.querySelectorAll('.site-nav a').forEach(link => {
     });
 });
 
+// Grain/noise effect
+const grainCanvas = document.getElementById('grain-canvas');
+if (grainCanvas) {
+    const ctx = grainCanvas.getContext('2d');
+
+    function resize() {
+        grainCanvas.width = window.innerWidth;
+        grainCanvas.height = window.innerHeight;
+    }
+
+    function generateNoise() {
+        const imageData = ctx.createImageData(grainCanvas.width, grainCanvas.height);
+        const data = imageData.data;
+        for (let i = 0; i < data.length; i += 4) {
+            const value = Math.random() * 255;
+            data[i] = value;
+            data[i + 1] = value;
+            data[i + 2] = value;
+            data[i + 3] = 255;
+        }
+        ctx.putImageData(imageData, 0, 0);
+    }
+
+    function animateGrain() {
+        generateNoise();
+        setTimeout(() => requestAnimationFrame(animateGrain), 50);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    animateGrain();
+}
+
+// Magnetic hover effect for interactive elements
+function initMagneticEffect() {
+    const magneticElements = document.querySelectorAll('.hero-links a, .contact-pill a, .site-nav a, .chat-toggle');
+
+    magneticElements.forEach(el => {
+        el.style.transition = 'transform 0.3s ease';
+
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const deltaX = (e.clientX - centerX) * 0.3;
+            const deltaY = (e.clientY - centerY) * 0.3;
+
+            el.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        });
+
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = 'translate(0, 0)';
+        });
+    });
+}
+
+// Initialize after page loads
+document.addEventListener('DOMContentLoaded', initMagneticEffect);
+
 const heroCarousel = document.querySelector('.hero-carousel');
 if (heroCarousel) {
     heroCarousel.addEventListener('mousedown', () => {
