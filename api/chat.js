@@ -151,9 +151,12 @@ export default async function handler(req, res) {
     const contextChunks = await retrieveContext(question);
     const answer = await generateAnswer(question, contextChunks);
 
-    // Log to Supabase (non-blocking)
+    // Log to Supabase
     if (supabase) {
-      supabase.from('chat_logs').insert({ question, answer }).then();
+      const { error } = await supabase.from('chat_logs').insert({ question, answer });
+      if (error) console.error('Supabase error:', error);
+    } else {
+      console.log('Supabase not configured - missing URL or key');
     }
 
     res.status(200).json({ answer, sources: contextChunks.map(c => c.source) });
