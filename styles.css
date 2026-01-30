@@ -186,13 +186,40 @@ body.faded #landing {
     justify-content: center;
 }
 
-.hero-media img {
+.hero-carousel {
+    position: relative;
     width: 100%;
     max-width: 420px;
+    overflow-x: auto;
+    overflow-y: hidden;
     border-radius: 14px;
-    object-fit: cover;
     box-shadow: 0 24px 40px rgba(0, 0, 0, 0.2);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
 }
+
+.hero-track {
+    display: flex;
+    width: 100%;
+}
+
+.hero-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.hero-carousel {
+    cursor: grab;
+    touch-action: pan-y;
+}
+
+.hero-track img {
+    width: 100%;
+    flex: 0 0 100%;
+    object-fit: cover;
+    display: block;
+    scroll-snap-align: center;
+}
+
 
 .hero-content {
     display: flex;

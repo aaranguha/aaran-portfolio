@@ -376,3 +376,18 @@ document.querySelectorAll('.site-nav a').forEach(link => {
         smoothScroll(profileInner, target.offsetTop, 800);
     });
 });
+
+const heroCarousel = document.querySelector('.hero-carousel');
+if (heroCarousel) {
+    heroCarousel.addEventListener('mousedown', () => {
+        heroCarousel.classList.add('is-dragging');
+    });
+
+    heroCarousel.addEventListener('mouseup', () => {
+        heroCarousel.classList.remove('is-dragging');
+    });
+
+    heroCarousel.addEventListener('mouseleave', () => {
+        heroCarousel.classList.remove('is-dragging');
+    });
+}
